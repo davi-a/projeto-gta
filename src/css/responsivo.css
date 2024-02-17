@@ -1,0 +1,59 @@
+@media (max-width: 1024px){ /* Quando a largura máxima for 1024 pixels ele aplica a regra 
+    Pra verificar, basta separar a janela do dev tools e ir diminuindo o tamanho da tela arrastando-a, assim 
+    você verá o tamanho da tela pois mostrará a pixelagem dela. */
+    .cabecalho{
+       /*background-color: blue; */
+       justify-content: center;
+       flex-direction: column; /* Uso o flex direction aqui porque o display:flex já existe na classe do estilos.css*/
+       padding: 50px 0;
+       gap: 15px;
+    }
+    .cabecalho .menu li a{
+        padding: 15px;
+    }
+    .home .informacoes{
+        padding: 30px;
+    }
+    .home .informacoes img{
+        max-width: 100px;
+    }
+    .home .informacoes .titulo{
+        font-size: 40px;
+    }
+    .compre-ja .cartao{
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px){ /* 768 é o tamnaho de tela de tablet que quebra também*/
+    .compre-ja{
+        padding: 30px;
+    }
+    .compre-ja .cartao{
+        padding: 80px 20px;
+        width: 100%;
+    }
+    .compre-ja .informacoes h3{
+        font-size: 35px;
+    }
+    .compre-ja .informacoes .plataformas{
+        flex-direction: column;
+    }
+    .btn-plataforma{
+        margin-top: 15px;
+        padding: 15px;
+    }
+    .btn-comprar{
+        width: 100%;
+    }
+}
+
+/*Criar uma última regra pra 425 pixels */
+@media (max-width: 425px){
+    main::after{
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4) 100%, transparent 65%); /*Tem que colocar o valor aqui dentro do parenteses, pegar na live*/
+    }
+    .compre-ja .cartao .capa-do-jogo{
+        max-width: 80%;
+    }
+}

@@ -1,0 +1,256 @@
+body {
+    background-color: #282828;
+    color: #fff; /*Coloca a cor de todas as tags do body de branco, isso se refere ao conteúdo das tags*/
+}
+
+.cabecalho {
+    /* com "ponto" na frente indica que é classe, se for tag como "body" s[o o nome basta*/
+    height: 80px;
+    background-color: #0b0b0b;
+    display: flex;
+    /*coloca os elementos, filhos, do cabecalho, pai, ao lado um do outro*/
+    justify-content: space-between;
+    /* coloca espaço entre os elementos do pai, cabecalho*/
+    align-items: center;
+    padding: 0 80px;
+    /*0 é da altura, top e bottom, 80 dos lados, left and right */
+    border-bottom: 1px solid #282828;
+}
+
+.cabecalho .logo{ /* Vou estilizar um elemento da classe "Logo" que está dentro da classe "cabeçalho"  */
+    display:  flex;
+    gap: 15px; /* gap também é uma propriedade de "flex container" */
+}
+
+.cabecalho .menu{
+    display: flex;
+    gap: 30px;
+}
+
+.cabecalho .menu li a{ /* estilizar todos os "a" que estão dentro do "li" que estão dentro do "menu" dentro do "cabeçalho" */ 
+    padding: 30px;    
+    color: #e8e8e8;
+    font-weight: bolder;
+    font-size: 15px;
+    font-family: 'Chalet'; /* fonte importada lá no HTML do site externo */
+}
+
+.cabecalho .menu li a:hover{ /* hover = sobrevoar que é uma pseudoclasse, se passa pr cima com mouse aplica um estilo*/
+    border-bottom: 2px solid #fff;
+}
+
+.home {
+    /* background-color:  aqua; */
+    display: flex;
+    position: relative;
+    min-height: calc(100vh - 80px); /*vh = view height altura da view/janela no navegador, e é menos 80 pixels porque o header tem altura de 80 pixels */
+}
+
+.home::after { /*"::" cria um elemento HTML pelo css, neste caso é um pseudo elemento criado depois da tag "home"*/
+    background-color: blue;
+    content: '';
+    position: absolute; /*absolute sai do fluxo normal da pagina, embaixo da imagem, e vem pra cima. Outro entendimento é como se criasse uma folha de papel com o pseudoleemnto e colocasse por cima da "home", depois eu crio o efeito neste pseudoelemento */
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .7) 35%, transparent 65% ); /*aplica um filtro por cima da imagem feito no pseudoelemento*/
+    /* o site cssgradient.io cria os gradientes/efeitos */
+}
+
+.home .imagem-fundo{
+    width: 100%;
+    object-fit: cover;/*pra não quebrar a imagem, pra deixar ela na proporção do tamanho do pai que é a "home"*/
+}
+
+.home .informacoes{
+    /* background-color: blueviolet; */
+    position: absolute; /* O elemento da classe "informacoes" está por baixo do filtro, "::after", portanto, uso o z-index pra trazer ele pra frente.*/
+    z-index: 1;/* z é o eixo de profundidade, colocar 1 nele dá maior prioridade e coloca o elemento da classe "informacoes" por cima do "::after" */
+    min-height: calc(100vh - 80px); /*Poderia usar o height: 100%, mas não funcionaria pois, ao usar o position, o elemento não está mais dentro do fluxo e, portanto, ele não sabe mais quem é o seu pai pra pegar 100% do tamanho dele*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    padding: 80px 80px 80px 170px;
+    max-width: 780px;
+}
+
+.home .informacoes img{
+    max-width: 150px;
+}
+
+.home .informacoes .lista-de-jogos{
+    display: flex;
+    gap: 32px;
+}
+
+.home .informacoes .titulo{
+    font-family: 'ChaletComprime';
+    font-size: 55px;
+}
+
+.home .informacoes .texto{
+    font-family: 'Chalet';
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.btn-comprar, .btn-plataforma{ /* colocar "," significa estilizar pra duas classes, neste caso as duas "btn", ".btn-comprar" e ".btn-plataforma" */
+    background-color: rgba(255,255,255,.1); /* a "a" é de açlpha que dá transparência*/
+    border: 0.5px solid #fff;
+    border-radius: 4px;
+    font-family: 'ChaletComprime';
+    font-size: 28px;
+    text-align: center;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    width: 50%;
+    transition: all .3s ease-in; /* Faz uma transição de todos os elementos da classe, "all" em .3 segundos, ".3s", com o efeito "ease-in" */
+}
+
+.btn-plataforma{
+    color: #fff;    
+    width: 100%; /* Este "width: 100% sobreescreverá o de 50% da estilização feita em ".btn-comprar, .btn-plataforma", dá pra verificar olhando os elementos/tags no navegadorusando crtl+shift+I, o de 50% aparecerá com um traço em uma das classes ".btn-plataforma" indicando que foi sobreescrito, e aparecerá com o novo valor de 100% na outra classe ".btn-plataforma" */
+    cursor: pointer;
+}
+/* Início do bloco de, Eu, bruno, criei a próxima estilização pra fazer o efeito de mudança ao passar o mouse no componente lá no navegador, eles esqueceram de criar */
+
+/* .btn-plataforma:hover{
+    background-color: #fff;
+    color: #000;
+} */
+
+/* Fim do bloco de, Eu, bruno, criei a próxima estilização pra fazer o efeito de mudança ao passar o mouse no componente lá no navegador, eles esqueceram de criar */
+
+.btn-comprar:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-comprar-jogos{
+    background-color: #fff;
+    color: #000;
+}
+
+.compre-ja .capa-do-jogo{
+    width: 270px;
+    /* background-color: brown; */ /* Não tem esse backgorund, era só pra ver o código sendo aplicado no momento da estilização*/
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+}
+
+.compre-ja{
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+    align-items: center;
+}
+
+.compre-ja .titulo{
+    font-family: 'ChaletComprime';
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.compre-ja .cartao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    width: 50%;
+    border-radius: 10px;
+    padding: 80px;
+    gap: 40px;
+}
+
+.compre-ja .informacoes{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.compre-ja .informacoes h3{
+    font-family: 'ChaletComprime';
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.compre-ja .informacoes p{
+    color: #e8e8e8;
+    font-family: 'Chalet';
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.compre-ja .informacoes .plataformas{
+    display: flex;
+    flex-wrap: wrap; /* O "wrap" diz, qdo não tiver espaço, quebra pra baixo pra colocar os elementos */
+    gap: 32px;
+    justify-content: center;
+}
+
+.compre-ja .btn-plataforma .plataformas{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all .3s ease-in;
+    display: none; /* Esconde os elementos da classe "plataformas", pra depois, no java script, fazer com que ele apareça. Quando Clicar no java script, adicionaremos uma classe e faremos os elementos aparecerem */
+    opacity: 0;
+}
+/* Abaixo, segue a classe do java script pra mostrar os elementos da classe "plataformas"*/
+.compre-ja .btn-plataforma .plataformas.ativo{ /*Observe: No seletor, entre os elementos ".plataformas.ativo" não há espaço entre as duas classes, "plataformas" e e"ativo", isso porque a gente quer que ele estilize apenas os elementos que tenham estas duas classes simultaneamente. Mas a classe "ativo" só é colocada, no html, via java script */
+    display: flex;
+    opacity: 1;
+}
+
+.compre-ja .btn-plataforma .plataformas li{
+    padding: 20px;
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(1){  /* "li:nth-child(1)" estilizar a pseudoclasse "nth-child(1)" no primeiro item da lista "li" */
+    border: 1px solid #00439c;
+}
+
+.compre-ja  .btn-plataforma .plataformas li:nth-child(1):hover{ /*O ":hover" vai fazer o efeito ao passar o mouse por cima, mudando a cor pra setada abaixo, dentro da estilização */
+    background-color: #00439c;
+}
+
+.compre-ja  .btn-plataforma .plataformas li:nth-child(2){
+    border: 1px solid #387a26;
+}
+
+.compre-ja  .btn-plataforma .plataformas li:nth-child(2):hover{
+    background-color: #387a26;
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(3) {
+    border: 1px solid #00439c;
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(3):hover {
+    background-color: #00439c;
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(4) {
+    border: 1px solid #387a26; 
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(4):hover {
+    background-color: #387a26;
+}
+.compre-ja .btn-plataforma .plataformas li:nth-child(5) {
+    border: 1px solid #fcaf17; 
+}
+
+.compre-ja .btn-plataforma .plataformas li:nth-child(5):hover {
+    background-color: #fcaf17;
+}
+
+
+
